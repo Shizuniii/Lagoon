@@ -8,11 +8,11 @@
 // Wer reinkommt, entscheiden der Gruppencode und die Datenbank-Regeln (database.rules.json).
 
 export const firebaseConfig = {
-  apiKey: 'DEIN_API_KEY',
-  authDomain: 'DEIN-PROJEKT.firebaseapp.com',
-  databaseURL: 'https://DEIN-PROJEKT-default-rtdb.europe-west1.firebasedatabase.app',
-  projectId: 'DEIN-PROJEKT',
-  storageBucket: 'DEIN-PROJEKT.firebasestorage.app',
-  messagingSenderId: 'DEINE_SENDER_ID',
-  appId: 'DEINE_APP_ID',
+  apiKey: "AIzaSyAQxiQRkaybHOqXRpoFHVTKtkFuAH2lQF8",
+  authDomain: "lagoon-e14a8.firebaseapp.com",
+  databaseURL: "https://lagoon-e14a8-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "lagoon-e14a8",
+  storageBucket: "lagoon-e14a8.firebasestorage.app",
+  messagingSenderId: "123178346488",
+  appId: "1:123178346488:web:074cba6f51bacf96a1180d"
 };
