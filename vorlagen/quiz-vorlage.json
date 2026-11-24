@@ -1,0 +1,63 @@
+{
+  "format": "spieleabend-quiz",
+  "version": 2,
+  "_hinweise": [
+    "Vorlage für ein eigenes Quiz. Importieren: Startseite → Quizwand → Quiz hosten → Datei importieren.",
+    "Felder, die mit _ anfangen, ignoriert die App. Du kannst sie stehen lassen oder löschen.",
+    "Ein Quiz hat 1 bis 10 Boards, ein Board 1 bis 8 Kategorien, eine Kategorie 1 bis 10 Fragen.",
+    "multiplier: Faktor für die Punkte des ganzen Boards. 2 = doppelte Punkte, z. B. für ein Finale.",
+    "defaultMode: gilt für Fragen ohne eigenes mode. turn = Reihum, buzzer = Buzzer, solo = nur wer dran ist, all = alle gleichzeitig.",
+    "Textfrage: answer ist die Lösung. accept sind weitere Antworten, die auch zählen. Bei kleinen Tippfehlern schlägt die App trotzdem richtig vor. Entscheiden tust aber immer du.",
+    "Auswahlfrage: type = choice, options = 2 bis 6 Antworten, correct = Position der richtigen, gezählt ab 0 (0 = erste, 1 = zweite …).",
+    "Schätzfrage: type = estimate, number = richtige Zahl, unit = Einheit (optional), tolerance = Fehlerbereich wie \"10%\" oder 100, scoring = closest (nächste gewinnt), farthest (weiteste verliert) oder range (alle im Bereich gewinnen) – scoring gilt nur bei mode all.",
+    "time: Timer in Sekunden für diese Frage. 0 oder weglassen = kein Timer.",
+    "media: Bild, Video oder Ton zur Frage als Link (https://…), z. B. \"media\": { \"src\": \"https://www.youtube.com/watch?v=…\", \"start\": 30, \"end\": 45 }. YouTube-Links gehen auch. start und end in Sekunden schneiden einen Ausschnitt aus. autoplay: false = erst abspielen, wenn du drückst.",
+    "solutionMedia: Medium, das zusammen mit „Lösung allen zeigen“ erscheint.",
+    "Eigene Dateien (statt Links) fügst du im Editor mit „Datei wählen“ hinzu. Beim Exportieren kommen sie mit in die Datei.",
+    "note: Notiz, die nur du als Host siehst, z. B. eine Quelle oder ein Hintergrund zur Antwort.",
+    "Eine Frage ohne Text (question leer) bleibt auf dem Board ein leeres Feld."
+  ],
+  "title": "Mein Quiz",
+  "defaultMode": "turn",
+  "boards": [
+    {
+      "title": "Board 1",
+      "multiplier": 1,
+      "categories": [
+        {
+          "name": "Kategorie 1",
+          "questions": [
+            { "value": 100, "question": "Textfrage: Hier steht die Frage.", "answer": "Lösung", "accept": ["andere Schreibweise", "Abkürzung"] },
+            { "value": 200, "type": "choice", "question": "Auswahlfrage mit 20 Sekunden Timer: Welche Antwort ist richtig?", "options": ["Antwort A", "Antwort B", "Antwort C", "Antwort D"], "correct": 1, "time": 20 },
+            { "value": 300, "question": "Buzzer-Frage: Wer zuerst buzzert, darf antworten.", "answer": "Lösung", "mode": "buzzer" },
+            { "value": 400, "type": "estimate", "question": "Schätzfrage für eine Person: Wie viele …?", "number": 860, "unit": "Stück", "tolerance": "10%", "mode": "solo", "note": "Diese Notiz siehst nur du." }
+          ]
+        },
+        {
+          "name": "Kategorie 2",
+          "questions": [
+            { "value": 100, "type": "estimate", "question": "Schätzfrage für alle: Die nächste Schätzung gewinnt.", "number": 250, "mode": "all", "scoring": "closest" },
+            { "value": 200, "type": "choice", "question": "Frage für alle: Alle antworten gleichzeitig.", "options": ["Antwort A", "Antwort B", "Antwort C", "Antwort D"], "correct": 3, "mode": "all" },
+            { "value": 300, "question": "", "answer": "" },
+            { "value": 400, "question": "", "answer": "" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Board 2",
+      "multiplier": 2,
+      "categories": [
+        {
+          "name": "Kategorie 1",
+          "questions": [
+            { "value": 100, "question": "", "answer": "" },
+            { "value": 200, "question": "", "answer": "" },
+            { "value": 300, "question": "", "answer": "" },
+            { "value": 400, "question": "", "answer": "" }
+          ]
+        }
+      ]
+    }
+  ]
+}
