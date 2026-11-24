@@ -1312,3 +1312,5 @@ details.qform-section > summary { cursor: pointer; list-style: revert; }
 .cat-view li span { color: var(--mist); font-size: var(--t-meta); }
 .pcat-edit .input, .cat-row .input { min-height: 44px; padding: 9px 12px; }
 .input:focus { border-color: var(--c-yellow); }
+.slot-by { flex-basis: 100%; color: var(--mist); font-size: var(--t-small); }
+.slot.mine .slot-by, .slot:has(.note.mystery) .slot-by { color: var(--chalk); font-weight: 600; }

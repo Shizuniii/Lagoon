@@ -621,8 +621,11 @@ function slotHTML(api, L, uid) {
   const cls = ['slot', active ? 'active' : '', st !== G.STATE.PLAYING ? 'done' : '', api.isOnline(uid) ? '' : 'offline'].filter(Boolean).join(' ');
   const label = me ? 'Du' : esc(G.playerName(L, uid));
   const topic = G.eachTopics(L) ? `<span class="slot-topic">${esc(topicLabel(G.topicOf(L, uid)))}</span>` : '';
+  // Wer hat den Charakter ausgesucht? (Zettel kennt es sicher, sonst die Zuteilung der Runde)
+  const byUid = (sec && sec.by) || G.chooserOf(L, uid);
+  const by = byUid ? `<span class="slot-by">ausgesucht von ${byUid === api.uid ? 'dir' : esc(G.playerName(L, byUid))}</span>` : '';
   return `<button class="${cls}" data-action="wbi:player" data-uid="${esc(uid)}">
-    ${note}<span class="slot-label"><span class="name">${label}</span>${active ? '<span class="tag">ist dran</span>' : ''}${topic}</span></button>`;
+    ${note}<span class="slot-label"><span class="name">${label}</span>${active ? '<span class="tag">ist dran</span>' : ''}${topic}${by}</span></button>`;
 }
 
 function turnbarHTML(api, L) {

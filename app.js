@@ -9,7 +9,7 @@ import { firebaseConfig } from './config.js';
 import { GAMES, gameById } from './games/index.js';
 
 export const APP_NAME = 'Spieleabend';
-const VERSION = '2.4.0';
+const VERSION = '2.4.1';
 const STALE_MS = 15 * 60 * 1000;
 const CODE_MIN = 10; // neue Gruppencodes: so lang, dass niemand sie durch Ausprobieren findet
 
@@ -220,7 +220,28 @@ async function boot() {
   const hashCode = new URLSearchParams(location.hash.slice(1)).get('code');
   if (hashCode) ctx.joinDraft.code = hashCode;
 
-  if ('serviceWorker' in navigator && !ctx.dev) navigator.serviceWorker.register('./sw.js').catch(() => {});
+  if ('serviceWorker' in navigator && !ctx.dev) {
+    const hadController = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker
+      .register('./sw.js')
+      .then((reg) => {
+        // Auch bei lange offener App nach Updates schauen: beim Zurückkehren ins Fenster und alle 30 Minuten
+        const check = () => reg.update().catch(() => {});
+        document.addEventListener('visibilitychange', () => document.visibilityState === 'visible' && check());
+        setInterval(check, 30 * 60 * 1000);
+      })
+      .catch(() => {});
+    let reloaded = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (!hadController || reloaded) return; // erste Installation: nichts tun
+      if (!myRoomEntry()) {
+        reloaded = true;
+        location.reload();
+      } else {
+        toast('Neue Version der App ist da. Öffne die App nach dem Spiel einmal neu, dann ist sie aktiv.');
+      }
+    });
+  }
 
   if (!isStandalone() && !ctx.dev) {
     ctx.boot = 'install';

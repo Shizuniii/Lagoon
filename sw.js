@@ -2,7 +2,7 @@
 // Strategie: immer zuerst frisch aus dem Netz (damit Updates sofort ankommen),
 // nur wenn das nicht geht, die gespeicherte Version.
 
-const CACHE = 'spieleabend-2.4.0';
+const CACHE = 'spieleabend-2.4.1';
 const ASSETS = [
   './',
   './index.html',

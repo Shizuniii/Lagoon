@@ -319,7 +319,7 @@ Betrifft das dein Gerät als Gruppenbesitzer: Tritt mit dem Code wieder bei, öf
 
 **Testen im normalen Browser-Tab** – Hänge `?dev` an die Adresse (`…/spieleabend/?dev`). Das überspringt nur den Installations-Hinweis; der Gruppencode wird trotzdem verlangt. In einem **Inkognito-Fenster** kannst du so am PC als zweite Person mitspielen und z. B. dein eigenes Quiz testen. (Ein normales zweites Fenster gilt als dieselbe Person.) Die Test-Person entfernst du danach unter **Mitglieder verwalten**.
 
-**Updates** – Geänderte Dateien einfach wieder ins Repository hochladen. Die App holt sich beim nächsten Öffnen die neue Version. Hat sich `database.rules.json` geändert (wie in Version 2.4.0), füge die Regeln wie in Schritt 3 neu ein und klicke **Publish** – sonst funktionieren neue Funktionen wie Rechte, Bilder oder die Themenliste nicht.
+**Updates** – Geänderte Dateien einfach wieder ins Repository hochladen. Die App holt sich beim nächsten Öffnen die neue Version. Hat sich `database.rules.json` geändert (zuletzt in Version 2.4.0), füge die Regeln wie in Schritt 3 neu ein und klicke **Publish** – sonst funktionieren neue Funktionen wie Rechte, Bilder oder die Themenliste nicht.
 
 ---
 
